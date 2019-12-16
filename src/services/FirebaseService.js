@@ -1,4 +1,4 @@
-import {firebaseDatabase} from '../util/firebaseUtils'
+import {firebaseDatabase, firebaseImpl} from '../util/firebaseUtils'
 
 export default class FirebaseService {
     static getDataList = (nodePath, callback, size = 10) => {
@@ -18,4 +18,24 @@ export default class FirebaseService {
         return query;
     };
 
+    static pushData = (node, objToSubmit) => {
+        const ref = firebaseDatabase.ref(node).push();
+        const id = firebaseDatabase.ref(node).push().key;
+        ref.set(objToSubmit);
+        return id;
+    };
+
+    static register = (email, password) => {
+        firebaseImpl.auth().createUserWithEmailAndPassword(email, password)
+            .catch(function(error) {
+           console.log(error)
+        });
+    };
+
+    static login = (email, password) => {
+        firebaseImpl.auth().signInWithEmailAndPassword(email, password)
+            .catch(function (error) {
+                console.log(error)
+            });
+    }
 }
