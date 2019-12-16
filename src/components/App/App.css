@@ -3,3 +3,11 @@
   padding: 0;
 }
 
+.card {
+  margin: 25px;
+  height: 78.4vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+}
