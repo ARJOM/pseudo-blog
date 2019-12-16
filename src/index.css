@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'RobotoMono';
+    src: url('./fonts/RobotoMono-Thin.ttf');
+}
+
+* {
+    font-family: 'RobotoMono', monospace;
+}
+
+.corpo {
+    height: 87.8vh;
+    overflow: hidden;
+
+    color: black;
+    background: #f5f5f5
+}
