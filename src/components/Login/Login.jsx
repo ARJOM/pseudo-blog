@@ -16,7 +16,7 @@ export default class Login extends Component{
     render() {
         return(
             <Fragment>
-                <Typography variant="headline" component="h2">Cadastro</Typography>
+                <Typography variant="headline" component="h2">Login</Typography>
                 <form onSubmit={this.submit}>
                     <TextField className="input-field"
                                type="email"
@@ -33,7 +33,7 @@ export default class Login extends Component{
                                onChange={e => this.password = e.target.value}/>
                     <Button type="submit"
                             style={{marginTop: '20px', display: 'inline-block'}}>
-                        Cadastrar
+                        Entrar
                     </Button>
                 </form>
             </Fragment>

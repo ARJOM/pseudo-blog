@@ -16,6 +16,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import {Post} from "../Posts/Post";
 import Add from "../Add/Add";
 import Register from "../Register/Register";
+import Login from "../Login/Login";
 
 import {Card, CardContent} from "@material-ui/core";
 
@@ -79,6 +80,11 @@ export default class App extends Component {
                        path={urls.register.path}
                        render={(props) =>
                        <Register {...props}/>}
+                />
+                <Route exact
+                       path={urls.login.path}
+                       render={(props) =>
+                       <Login {...props}/>}
                 />
               </CardContent>
             </Card>
