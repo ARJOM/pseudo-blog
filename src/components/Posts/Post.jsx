@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React, {Fragment} from "react";
 import "./Post.css"
 
 export const Post = ({data}) => {
-    return(
+    return (
         <Fragment>
             <div className="post">
                 <h2>Post</h2>

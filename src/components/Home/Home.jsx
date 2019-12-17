@@ -15,7 +15,7 @@ export default () => {
                 Object.values(urls).map((url, index) => {
                     return <Button raised
                                    key={index}
-                                   component={ props =>
+                                   component={props =>
                                        <Link to={url.path} {...props}/>
                                    }
                     >

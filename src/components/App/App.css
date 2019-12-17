@@ -1,13 +1,13 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .card {
-  margin: 25px;
-  height: 78.4vh;
-  overflow: hidden;
+    margin: 25px;
+    height: 78.4vh;
+    overflow: hidden;
 
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }

@@ -27,9 +27,9 @@ export default class FirebaseService {
 
     static register = (email, password) => {
         firebaseImpl.auth().createUserWithEmailAndPassword(email, password)
-            .catch(function(error) {
-           console.log(error)
-        });
+            .catch(function (error) {
+                console.log(error)
+            });
     };
 
     static login = (email, password) => {
@@ -37,5 +37,10 @@ export default class FirebaseService {
             .catch(function (error) {
                 console.log(error)
             });
+    };
+
+    static getNome = () => {
+        const email = firebaseImpl.auth().currentUser;
+
     }
 }

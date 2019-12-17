@@ -2,7 +2,7 @@ import React, {Component, Fragment} from "react";
 import {Button, TextField, Typography} from "@material-ui/core";
 import FirebaseService from "../../services/FirebaseService";
 
-export default class Register extends Component{
+export default class Register extends Component {
 
     submit = (event) => {
         event.preventDefault();
@@ -18,7 +18,7 @@ export default class Register extends Component{
     };
 
     render() {
-        return(
+        return (
             <Fragment>
                 <Typography variant="headline" component="h2">Cadastro</Typography>
                 <form onSubmit={this.submit}>

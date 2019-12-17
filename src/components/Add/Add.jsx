@@ -4,6 +4,7 @@ import FirebaseService from "../../services/FirebaseService";
 import {withRouter} from "react-router-dom";
 
 import "./Add.css"
+
 class Add extends Component {
 
     submit = (event) => {
@@ -15,9 +16,9 @@ class Add extends Component {
         let hora = data.getHours();
         let min = data.getMinutes();
         let ano4 = data.getFullYear();
-        let str_data = dia + '/' + (mes+1) + '/' + ano4;
+        let str_data = dia + '/' + (mes + 1) + '/' + ano4;
         let str_hora = hora + ':' + min;
-        let now = str_data+", "+str_hora;
+        let now = str_data + ", " + str_hora;
 
 
         const {title} = this;
@@ -50,9 +51,9 @@ class Add extends Component {
 
 
             <TextareaAutosize className="input-field"
-                       type="text"
-                       required
-                       onChange={e => this.content = e.target.value}/>
+                              type="text"
+                              required
+                              onChange={e => this.content = e.target.value}/>
 
             <Button type="submit"
                     style={{marginTop: '20px', display: 'inline-block'}}>
