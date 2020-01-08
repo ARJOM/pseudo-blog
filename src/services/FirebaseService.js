@@ -27,6 +27,13 @@ export default class FirebaseService {
 
     static register = (email, password) => {
         firebaseImpl.auth().createUserWithEmailAndPassword(email, password)
+            .then(
+                firebaseImpl.auth().currentUser.getIdToken().then(function(idToken) {
+                    localStorage.setItem("key", idToken);
+                }).catch(function(error) {
+                    console.log(error)
+                })
+            )
             .catch(function (error) {
                 console.log(error)
             });
@@ -34,13 +41,26 @@ export default class FirebaseService {
 
     static login = (email, password) => {
         firebaseImpl.auth().signInWithEmailAndPassword(email, password)
+            .then(
+                firebaseImpl.auth().currentUser.getIdToken().then(function(idToken) {
+                    localStorage.setItem("key", idToken);
+                }).catch(function(error) {
+                    console.log(error)
+                })
+            )
             .catch(function (error) {
                 console.log(error)
             });
     };
 
-    static getNome = () => {
-        const email = firebaseImpl.auth().currentUser;
+    // static getNome = () => {
+    //     const email = firebaseImpl.auth().currentUser;
+    //
+    // };
 
+    static logout = () => {
+        firebaseImpl.auth().signOut().then(
+            localStorage.removeItem("key")
+        );
     }
 }

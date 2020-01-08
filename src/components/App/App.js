@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import './App.css';
 
 import {IconButton, MuiThemeProvider} from '@material-ui/core';
@@ -58,34 +58,38 @@ export default class App extends Component {
                     </AppBar>
                     <Card className="card">
                         <CardContent>
+                            <Switch>
+                                <Route exact
+                                       path={urls.home.path}
+                                       render={(props) =>
+                                           <Home {...props}/>}
+                                />
 
-                            <Route exact
-                                   path={urls.home.path}
-                                   render={(props) =>
-                                       <Home {...props}/>}
-                            />
+                                <Route exact
+                                       path={urls.post.path}
+                                       render={(props) =>
+                                           <Post {...props} data={this.state.data}/>}
+                                />
 
-                            <Route exact
-                                   path={urls.post.path}
-                                   render={(props) =>
-                                       <Post {...props} data={this.state.data}/>}
-                            />
-
-                            <Route exact
-                                   path={urls.add.path}
-                                   render={(props) =>
-                                       <Add {...props}/>}
-                            />
-                            <Route exact
-                                   path={urls.register.path}
-                                   render={(props) =>
-                                       <Register {...props}/>}
-                            />
-                            <Route exact
-                                   path={urls.login.path}
-                                   render={(props) =>
-                                       <Login {...props}/>}
-                            />
+                                <Route exact
+                                       path={urls.add.path}
+                                       render={(props) =>
+                                           <Add {...props}/>}
+                                />
+                                <Route exact
+                                       path={urls.register.path}
+                                       render={(props) =>
+                                           <Register {...props}/>}
+                                />
+                                <Route exact
+                                       path={urls.login.path}
+                                       render={(props) =>
+                                           <Login {...props}/>}
+                                />
+                                <Route exact
+                                       path={urls.logout.path}
+                                />
+                            </Switch>
                         </CardContent>
                     </Card>
 
