@@ -20,6 +20,10 @@ import Login from "../Login/Login";
 
 import {Card, CardContent} from "@material-ui/core";
 
+import {AuthProvider} from "../../util/Auth";
+import PrivateRoute from "../../util/PrivateRoute";
+
+
 const theme = createMuiTheme({
     palette: {
         primary: blue,
@@ -56,43 +60,41 @@ export default class App extends Component {
 
                         </Toolbar>
                     </AppBar>
-                    <Card className="card">
-                        <CardContent>
-                            <Switch>
-                                <Route exact
-                                       path={urls.home.path}
-                                       render={(props) =>
-                                           <Home {...props}/>}
-                                />
+                    <AuthProvider>
+                        <Card className="card">
+                            <CardContent>
+                                <Switch>
+                                    <Route exact
+                                           path={urls.home.path}
+                                           render={(props) =>
+                                               <Home {...props}/>}
+                                    />
 
-                                <Route exact
-                                       path={urls.post.path}
-                                       render={(props) =>
-                                           <Post {...props} data={this.state.data}/>}
-                                />
+                                    <Route exact
+                                           path={urls.post.path}
+                                           render={(props) =>
+                                               <Post {...props} data={this.state.data}/>}
+                                    />
 
-                                <Route exact
-                                       path={urls.add.path}
-                                       render={(props) =>
-                                           <Add {...props}/>}
-                                />
-                                <Route exact
-                                       path={urls.register.path}
-                                       render={(props) =>
-                                           <Register {...props}/>}
-                                />
-                                <Route exact
-                                       path={urls.login.path}
-                                       render={(props) =>
-                                           <Login {...props}/>}
-                                />
-                                <Route exact
-                                       path={urls.logout.path}
-                                />
-                            </Switch>
-                        </CardContent>
-                    </Card>
-
+                                    <PrivateRoute exact
+                                           path={urls.add.path}
+                                           render={(props) =>
+                                               <Add {...props}/>}
+                                    />
+                                    <Route exact
+                                           path={urls.register.path}
+                                           render={(props) =>
+                                               <Register {...props}/>}
+                                    />
+                                    <Route exact
+                                           path={urls.login.path}
+                                           render={(props) =>
+                                               <Login {...props}/>}
+                                    />
+                                </Switch>
+                            </CardContent>
+                        </Card>
+                    </AuthProvider>
                 </React.Fragment>
             </MuiThemeProvider>
         );
