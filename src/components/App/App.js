@@ -90,6 +90,23 @@ export default class App extends Component {
                                            render={(props) =>
                                                <Login {...props}/>}
                                     />
+                                    {
+                                        this.state.data.map((post, index) => {
+                                            return (
+                                                <Route exact
+                                                       path={"/" + post.title}
+                                                       render={(props) =>
+                                                           <div>
+                                                               <h2>{post.title}</h2>
+                                                               <p>{post.content}</p>
+                                                               <p>Data: {post.date}</p>
+                                                               <p>Autor: {post.author}</p>
+                                                           </div>
+                                                       }
+                                                />
+                                            )
+                                        })
+                                    }
                                 </Switch>
                             </CardContent>
                         </Card>
