@@ -1,36 +1,49 @@
-import React, {Component, Fragment} from "react";
+import React, {Fragment, useCallback, useContext} from "react";
+import { withRouter, Redirect } from "react-router";
 import {Button, TextField, Typography} from "@material-ui/core";
-import FirebaseService from "../../services/FirebaseService";
+import {firebaseImpl as app} from "../../util/firebaseUtils";
+import {AuthContext} from "../../util/Auth";
 
-export default class Login extends Component {
+const Login = ({ history }) => {
 
-    submit = (event) => {
-        event.preventDefault();
+    const handleLogin = useCallback(
+        async event => {
+            event.preventDefault();
+            const { email, password } = event.target.elements;
+            try {
+                await app
+                    .auth()
+                    .signInWithEmailAndPassword(email.value, password.value);
+                history.push("/");
+            } catch (error) {
+                alert(error);
+            }
+        },
+        [history]
+    );
 
-        const {email} = this;
-        const {password} = this;
+    const { currentUser } = useContext(AuthContext);
 
-        FirebaseService.login(email, password);
-    };
-
-    render() {
+    if (currentUser) {
+        return <Redirect to="/" />;
+    }
         return (
             <Fragment>
                 <Typography variant="headline" component="h2">Login</Typography>
-                <form onSubmit={this.submit}>
+                <form onSubmit={handleLogin}>
                     <TextField className="input-field"
                                type="email"
+                               name="email"
                                defaultValue={''}
                                label="Email"
-                               required
-                               onChange={e => this.email = e.target.value}/>
+                               required/>
 
                     <TextField className="input-field"
                                type="password"
+                               name="password"
                                defaultValue={''}
                                label="Senha"
-                               required
-                               onChange={e => this.password = e.target.value}/>
+                               required/>
                     <Button type="submit"
                             style={{marginTop: '20px', display: 'inline-block'}}>
                         Entrar
@@ -38,5 +51,5 @@ export default class Login extends Component {
                 </form>
             </Fragment>
         )
-    }
-}
+};
+export default withRouter(Login);

@@ -2,6 +2,8 @@ import {urls} from "../../util/urlUtils";
 import {Button, Typography} from "@material-ui/core";
 import React from "react";
 import {Link} from "react-router-dom";
+import FirebaseService from "../../services/FirebaseService";
+
 
 export default () => {
     return (
@@ -23,6 +25,7 @@ export default () => {
                     </Button>
                 })
             }
+            <Button onClick={FirebaseService.logout}>Logout</Button>
             <p>Este é um projeto de desenvolvimento em React</p>
         </React.Fragment>
     )

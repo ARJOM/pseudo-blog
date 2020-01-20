@@ -25,33 +25,29 @@ export default class FirebaseService {
         return id;
     };
 
-    static register = (email, password) => {
-        firebaseImpl.auth().createUserWithEmailAndPassword(email, password)
-            .then(
-                firebaseImpl.auth().currentUser.getIdToken().then(function(idToken) {
-                    localStorage.setItem("key", idToken);
-                }).catch(function(error) {
-                    console.log(error)
-                })
-            )
-            .catch(function (error) {
-                console.log(error)
-            });
-    };
+    // static register = (email, password) => {
+    //     firebaseImpl.auth().createUserWithEmailAndPassword(email, password)
+    //         .then(
+    //             alert("deu certo")
+    //         )
+    //         .catch(function (error) {
+    //             console.log(error)
+    //         });
+    // };
 
-    static login = (email, password) => {
-        firebaseImpl.auth().signInWithEmailAndPassword(email, password)
-            .then(
-                firebaseImpl.auth().currentUser.getIdToken().then(function(idToken) {
-                    localStorage.setItem("key", idToken);
-                }).catch(function(error) {
-                    console.log(error)
-                })
-            )
-            .catch(function (error) {
-                console.log(error)
-            });
-    };
+    // static login = (email, password) => {
+    //     firebaseImpl.auth().signInWithEmailAndPassword(email, password)
+    //         .then(
+    //             firebaseImpl.auth().currentUser.getIdToken().then(function(idToken) {
+    //                 localStorage.setItem("key", idToken);
+    //             }).catch(function(error) {
+    //                 console.log(error)
+    //             })
+    //         )
+    //         .catch(function (error) {
+    //             console.log(error)
+    //         });
+    // };
 
     // static getNome = () => {
     //     const email = firebaseImpl.auth().currentUser;
@@ -59,8 +55,6 @@ export default class FirebaseService {
     // };
 
     static logout = () => {
-        firebaseImpl.auth().signOut().then(
-            localStorage.removeItem("key")
-        );
+        firebaseImpl.auth().signOut();
     }
 }
