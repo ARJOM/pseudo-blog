@@ -78,8 +78,7 @@ export default class App extends Component {
 
                                     <PrivateRoute exact
                                            path={urls.add.path}
-                                           render={(props) =>
-                                               <Add {...props}/>}
+                                           component={Add}
                                     />
                                     <Route exact
                                            path={urls.register.path}

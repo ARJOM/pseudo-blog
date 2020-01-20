@@ -24,7 +24,8 @@ class Add extends Component {
         const {title} = this;
         const {content} = this;
         const date = now;
-        const author = "ricart";
+        const author = FirebaseService.getNome();
+
 
         FirebaseService.pushData('posts', {
             title,

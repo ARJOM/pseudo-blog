@@ -49,10 +49,11 @@ export default class FirebaseService {
     //         });
     // };
 
-    // static getNome = () => {
-    //     const email = firebaseImpl.auth().currentUser;
-    //
-    // };
+    static getNome = () => {
+        const user = firebaseImpl.auth().currentUser;
+        const email = user.email;
+        alert(email)
+    };
 
     static logout = () => {
         firebaseImpl.auth().signOut();
