@@ -61,6 +61,7 @@ export default class App extends Component {
                         </Toolbar>
                     </AppBar>
                     <AuthProvider>
+                        <div className="total">
                         <Card className="card">
                             <CardContent>
                                 <Switch>
@@ -110,6 +111,7 @@ export default class App extends Component {
                                 </Switch>
                             </CardContent>
                         </Card>
+                        </div>
                     </AuthProvider>
                 </React.Fragment>
             </MuiThemeProvider>

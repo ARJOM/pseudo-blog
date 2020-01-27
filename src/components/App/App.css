@@ -3,11 +3,26 @@
     padding: 0;
 }
 
+.total {
+    height: 91vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
 .card {
-    margin: 25px;
-    height: 78.4vh;
+    /*margin: 25px;*/
+    height: 83vh;
+    width: 92vw;
     overflow: hidden;
 
     display: flex;
+    justify-content: center;
+}
+
+#titulo{
+    height: 8.85vh;
     justify-content: center;
 }
